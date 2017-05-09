@@ -1,0 +1,77 @@
+
+digraph G {
+  rankdir=UD
+  splines=line
+
+  node [fixedsize=true, label=""];
+
+  subgraph cluster_01 {
+    color=beige;
+    style=filled;
+    node [style=solid,color=blue4, shape=circle];
+    x4 x3 x2 x1;
+    label = "stock_01";
+  }
+
+  subgraph cluster_02 {
+    color=beige;
+    style=filled;
+    node [style=solid, color=seagreen4, shape=circle];
+    y5 y4 y3 y2 y1;
+    label = "stock_02"
+  }
+
+  subgraph cluster_1 {
+    color=tan;
+    style=filled;
+    node [style=solid,color=red2, shape=circle];
+    a3 a2 a1;
+    label = "目标区间";
+  }
+
+  subgraph cluster_2 {
+    color=white;
+    node [style=solid,color=seagreen4, shape=circle, style=filled, fillcolor=grey];
+    d7[fillcolor=tomato] d6[fillcolor=deepskyblue] d5[fillcolor="yellow3"] d4 d3 d2[fillcolor="green"] d1[fillcolor="blue"];
+  }
+
+  subgraph cluster_3 {
+    color=yellowgreen;
+    style=filled;
+    node [style=solid,color=seagreen4, shape=circle, style=filled];
+    e7[fillcolor=tomato] e6[fillcolor=deepskyblue] e5[fillcolor="yellow3", style=filled] e2[fillcolor="green", style=filled] e1[fillcolor="blue", style=filled];
+    label = "输出"
+  }
+
+  x1 -> a1 [color="blue"];
+  x2 -> a2 [color="blue"];
+  x3 -> a3 [color="blue"];
+
+  a1 -> d1 [color="blue"];
+  a2 -> d1 [color="blue"];
+  a3 -> d1 [color="blue"];
+
+
+  x2 -> a1 [color="green"];
+  x3 -> a2 [color="green"];
+  x4 -> a3 [color="green"];
+
+  a1 -> d2 [color="green"];
+  a2 -> d2 [color="green"];
+  a3 -> d2 [color="green"];
+
+  y1 -> a1 [color="yellow3"];
+  y2 -> a2 [color="yellow3"];
+  y3 -> a3 [color="yellow3"];
+
+  a1 -> d5 [color="yellow3"];
+  a2 -> d5 [color="yellow3"];
+  a3 -> d5 [color="yellow3"];
+
+  d1 -> e1 [color="blue"];
+  d2 -> e2 [color="green"];
+  d5 -> e5 [color="yellow3"];
+  d6 -> e6 [color="deepskyblue"];
+  d7 -> e7 [color="tomato"]
+
+}
